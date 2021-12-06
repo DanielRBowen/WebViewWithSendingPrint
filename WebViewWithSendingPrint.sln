@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebViewWithSendingPrint", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentsWebsite", "DocumentsWebsite\DocumentsWebsite.csproj", "{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebViewWithSendingPrint.Maui", "WebViewWithSendingPrint.Maui\WebViewWithSendingPrint.Maui.csproj", "{A88B75FE-4658-49E2-95B3-A752AE92E234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,11 @@ Global
 		{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
