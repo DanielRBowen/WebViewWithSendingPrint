@@ -1,0 +1,23 @@
+﻿@model DocumentsWebsite.ViewModels.DocumentsViewModel
+
+@{
+    ViewData["Title"] = "Documents";
+}
+
+<h1>Documents</h1>
+
+@Html.HiddenFor(model => model.ClientId)
+<button type="button" id="printDocumentButton">Print Document</button>
+
+<div>
+    <h4>Documents Printer Client Id:</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientId)
+        </dd>
+    </dl>
+</div>
