@@ -19,7 +19,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.SignalR.Client;
-using PDFtoPrinter;
 using Syroot.Windows.IO;
 
 namespace WebViewWithSendingPrint

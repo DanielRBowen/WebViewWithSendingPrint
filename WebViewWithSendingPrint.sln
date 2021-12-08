@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebViewWithSendingPrint", "WebViewWithSendingPrint\WebViewWithSendingPrint.csproj", "{8AF7A836-F675-48C8-A621-04E7AE79CAC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebViewWithSendingPrint", "WebViewWithSendingPrint\WebViewWithSendingPrint.csproj", "{8AF7A836-F675-48C8-A621-04E7AE79CAC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentsWebsite", "DocumentsWebsite\DocumentsWebsite.csproj", "{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentsWebsite", "DocumentsWebsite\DocumentsWebsite.csproj", "{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebViewWithSendingPrint.Maui", "WebViewWithSendingPrint.Maui\WebViewWithSendingPrint.Maui.csproj", "{A88B75FE-4658-49E2-95B3-A752AE92E234}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebViewWithSendingPrint.Maui", "WebViewWithSendingPrint.Maui\WebViewWithSendingPrint.Maui.csproj", "{2FD2499A-8D1D-48FA-8247-FC4BA33A75B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,11 +23,11 @@ Global
 		{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17B5C89B-C4F9-4D5A-9E33-DBEDE61719FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A88B75FE-4658-49E2-95B3-A752AE92E234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD2499A-8D1D-48FA-8247-FC4BA33A75B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD2499A-8D1D-48FA-8247-FC4BA33A75B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD2499A-8D1D-48FA-8247-FC4BA33A75B0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2FD2499A-8D1D-48FA-8247-FC4BA33A75B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD2499A-8D1D-48FA-8247-FC4BA33A75B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,7 @@ namespace DocumentsWebsite.Hubs
             try
             {
                 var httpContext = Context.GetHttpContext();
-                var clientId = httpContext.Request.Query["ClientId"].ToString().ToLowerInvariant(); ;
+                var clientId = httpContext?.Request.Query["ClientId"].ToString().ToLowerInvariant(); ;
                 await Groups.AddToGroupAsync(Context.ConnectionId, $"{clientId}");
                 await base.OnConnectedAsync();
             }
@@ -26,13 +26,13 @@ namespace DocumentsWebsite.Hubs
             }
         }
 
-        public override async Task OnDisconnectedAsync(Exception exception)
+        public override async Task OnDisconnectedAsync(Exception? exception)
         {
             try
             {
                 var httpContext = Context.GetHttpContext();
 
-                string? clientId = httpContext.Request.Query["ClientId"]
+                string? clientId = httpContext?.Request.Query["ClientId"]
                     .ToString()
                     .ToLowerInvariant();
 
