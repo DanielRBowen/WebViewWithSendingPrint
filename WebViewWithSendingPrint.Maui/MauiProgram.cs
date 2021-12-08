@@ -28,11 +28,19 @@ namespace WebViewWithSendingPrint.Maui
                 .ConfigureAppConfiguration((app, config) =>
                 {
 #if __ANDROID__
-                    var documentsFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+                    // https://stackoverflow.com/questions/49867588/accessing-files-through-a-physical-path-in-xamarin-android
+                    //var documentsFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
                     var configFile = "appsettings.json";
-                    var destinationPath = Path.Combine(documentsFolderPath, configFile);
-                    string[] files = Directory.GetFiles(documentsFolderPath);
-                    config.AddJsonFile(destinationPath, optional: false, reloadOnChange: true);
+
+                    //https://docs.microsoft.com/en-us/xamarin/ios/app-fundamentals/file-system
+                    //var directories = Directory.EnumerateDirectories("./");
+                    //foreach (var directory in directories)
+                    //{
+                    //    Console.WriteLine(directory);
+                    //}
+                    //var destinationPath = Path.Combine(documentsFolderPath, configFile);
+                    //string[] files = Directory.GetFiles(documentsFolderPath);
+                    config.AddJsonFile(configFile, optional: false, reloadOnChange: true);
 #endif
 
 #if WINDOWS10_0_17763_0_OR_GREATER
