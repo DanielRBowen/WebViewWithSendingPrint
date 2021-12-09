@@ -1,0 +1,45 @@
+﻿@page "/"
+@using Microsoft.Extensions.Configuration
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Text
+@using WebViewWithSendingPrint.Maui.Services
+@inject IConfiguration Configuration
+@inject IJSRuntime JSRuntime
+@inject IPrintingService PrintingService
+
+<iframe src="@_iFrameSource" style="width: 100vw; height: 100vh;"></iframe>
+
+@code {
+    private string _iFrameSource { get; set; }
+
+    private HubConnection _hubConnection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string documentsWebsite = Configuration["DocumentsWebsite"];
+        string clientId = Configuration["ClientId"];
+        var webViewSourceBuilder = new StringBuilder();
+        webViewSourceBuilder.Append(documentsWebsite);
+        webViewSourceBuilder.Append("/documents");
+
+        if (string.IsNullOrWhiteSpace(clientId) == false)
+        {
+            webViewSourceBuilder.Append("?ClientId=" + clientId);
+        }
+
+        _iFrameSource = new Uri(webViewSourceBuilder.ToString()).ToString();
+        await StartListeningToDocuments(documentsWebsite, clientId);
+    }
+
+    public async Task StartListeningToDocuments(string documentsWebsite, string clientId)
+    {
+        _hubConnection = new HubConnectionBuilder().WithUrl($"{documentsWebsite}/documentshub?ClientId={clientId}").WithAutomaticReconnect().Build();
+        _hubConnection.On("printDocument", (string documentString) => PrintDocument(documentString));
+        await _hubConnection.StartAsync();
+    }
+
+    public void PrintDocument(string documentString)
+    {
+        PrintingService.Print(documentString);
+    }
+}
