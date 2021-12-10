@@ -6,16 +6,26 @@
 @inject IConfiguration Configuration
 @inject IJSRuntime JSRuntime
 @inject IPrintingService PrintingService
+@inject OnScreenLogs OnScreenLogs
 
-<iframe src="@_iFrameSource" style="width: 100vw; height: 100vh;"></iframe>
+
+
+@if (!string.IsNullOrWhiteSpace(_lastOnScreenLogEntry))
+{
+    <h1>@_lastOnScreenLogEntry</h1>
+
+}
+
+<iframe src="@_iFrameSource" style="width: 80vw; height: 80vh;"></iframe>
 
 @code {
     private string _iFrameSource { get; set; }
-
+    private string _lastOnScreenLogEntry;
     private HubConnection _hubConnection;
 
     protected override async Task OnInitializedAsync()
     {
+        OnScreenLogs.LogUpdated += OnScreenLogs_LogUpdated;
         string documentsWebsite = Configuration["DocumentsWebsite"];
         string clientId = Configuration["ClientId"];
         var webViewSourceBuilder = new StringBuilder();
@@ -41,5 +51,12 @@
     public void PrintDocument(string documentString)
     {
         PrintingService.Print(documentString);
+    }
+
+    public void OnScreenLogs_LogUpdated(object sender, EventArgs e)
+    {
+        var onScreenLogEventArgs = e as OnScreenLogEventArgs;
+        _lastOnScreenLogEntry = onScreenLogEventArgs.LastLogEntry;
+        StateHasChanged();
     }
 }

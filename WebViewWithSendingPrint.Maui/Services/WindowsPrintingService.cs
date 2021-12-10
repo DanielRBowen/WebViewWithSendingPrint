@@ -5,20 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Printing;
+using Microsoft.Extensions.Logging;
 
 namespace WebViewWithSendingPrint.Maui.Services
 {
     public class WindowsPrintingService : IPrintingService
     {
         private readonly IConfiguration _configuration;
+        private readonly ILogger<WindowsPrintingService> _logger;
+        private readonly OnScreenLogs _onScreenLogs;
 
-        public WindowsPrintingService(IConfiguration configuration)
+        public WindowsPrintingService(IConfiguration configuration, ILogger<WindowsPrintingService> logger, OnScreenLogs onScreenLogs)
         {
             _configuration = configuration;
+            _logger = logger;
+            _onScreenLogs = onScreenLogs;
         }
 
         public void Print(string printString)
         {
+            _onScreenLogs.LastLogEntry = "Called print";
             string printerName = _configuration["PrinterName"];
 
             _ = string.IsNullOrWhiteSpace(printerName)

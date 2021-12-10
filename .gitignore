@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/DocumentsWebsite/Properties/ServiceDependencies/drbWebViewTest - Web Deploy/profile.arm.json
+/DocumentsWebsite/Properties/ServiceDependencies/drbWebViewTest - Zip Deploy/profile.arm.json
