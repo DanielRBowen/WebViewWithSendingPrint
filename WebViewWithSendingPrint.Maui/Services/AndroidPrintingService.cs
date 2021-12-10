@@ -1,5 +1,7 @@
-﻿using Android.Bluetooth;
+﻿#if ANDROID
+using Android.Bluetooth;
 using Java.Util;
+#endif
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,11 +15,13 @@ namespace WebViewWithSendingPrint.Maui.Services
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger<AndroidPrintingService> _logger;
+        private readonly OnScreenLogs _onScreenLogs;
 
-        public AndroidPrintingService(IConfiguration configuration, ILogger<AndroidPrintingService> logger)
+        public AndroidPrintingService(IConfiguration configuration, ILogger<AndroidPrintingService> logger, OnScreenLogs onScreenLogs)
         {
             _configuration = configuration;
             _logger = logger;
+            _onScreenLogs = onScreenLogs;
         }
 
         /// <summary>
@@ -27,6 +31,7 @@ namespace WebViewWithSendingPrint.Maui.Services
         /// <param name="printString"></param>
         public async void Print(string printString)
         {
+#if ANDROID
             try
             {
                 BluetoothAdapter bluetoothAdapter = BluetoothAdapter.DefaultAdapter;
@@ -55,7 +60,9 @@ namespace WebViewWithSendingPrint.Maui.Services
             catch (Exception exception)
             {
                 _logger.LogError(exception.ToString(), exception);
+                _onScreenLogs.LastLogEntry = exception.ToString();
             }
+#endif
         }
     }
 }
