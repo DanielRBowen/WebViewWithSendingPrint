@@ -33,6 +33,7 @@ namespace WebViewWithSendingPrint.Maui
                     config.AddJsonFile(new EmbeddedFileProvider(assembly), "appsettings.json", optional: false, false);
                 });
 
+            builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<OnScreenLogs>();
 
             //https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/app-startup

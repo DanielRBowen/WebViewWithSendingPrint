@@ -5,10 +5,13 @@
              x:Class="WebViewWithSendingPrint.Maui.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <b:BlazorWebView x:Name="DocumentsWebView" HostPage="wwwroot/index.html">
+    <!--<b:BlazorWebView x:Name="DocumentsWebView" HostPage="wwwroot/index.html">
         <b:BlazorWebView.RootComponents>
             <b:RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
         </b:BlazorWebView.RootComponents>
-    </b:BlazorWebView>
+    </b:BlazorWebView>-->
 
+    <StackLayout>
+        <WebView x:Name="MainWebView" Source="https://www.microsoft.com/" WidthRequest="1920" HeightRequest="1080" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></WebView>
+    </StackLayout>
 </ContentPage>
