@@ -62,11 +62,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Remove="appsettings.json" />
-		<Content Remove="Properties\launchSettings.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>

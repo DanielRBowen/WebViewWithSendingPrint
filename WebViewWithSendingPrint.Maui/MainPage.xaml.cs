@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Maui.Controls;
 using System;
+using System.Diagnostics;
 using System.Text;
 
 namespace WebViewWithSendingPrint.Maui
@@ -20,10 +21,21 @@ namespace WebViewWithSendingPrint.Maui
             var deviceWidth = DeviceDisplay.MainDisplayInfo.Width;
             MainWebView.WidthRequest = (deviceWidth / deviceDensity);
             var deviceHeight = DeviceDisplay.MainDisplayInfo.Height;
-            MainWebView.HeightRequest = (deviceHeight / deviceDensity) - 50; // The device icons on top get in the way so - 50
+            MainWebView.HeightRequest = (deviceHeight / deviceDensity);
 #endif
-            string documentsWebsite = _configuration["DocumentsWebsite"];
-            string clientId = _configuration["ClientId"];
+            string documentsWebsiteFromConfiguration = _configuration["EatOnTheWebSite"];
+
+            if (string.IsNullOrWhiteSpace(documentsWebsiteFromConfiguration))
+            {
+                Debug.WriteLine("Couldn't get the webview source from IConfiguraton");
+            }
+            else
+            {
+                Debug.WriteLine("Got the webview source from IConfiguraton");
+            }
+
+            string documentsWebsite = AppSettingsManager.Settings["DocumentsWebsite"];
+            string clientId = AppSettingsManager.Settings["ClientId"];
             var webViewSourceBuilder = new StringBuilder();
             webViewSourceBuilder.Append(documentsWebsite);
             webViewSourceBuilder.Append("/documents");
