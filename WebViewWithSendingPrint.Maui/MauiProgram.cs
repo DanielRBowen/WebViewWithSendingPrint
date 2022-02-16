@@ -24,14 +24,18 @@ namespace WebViewWithSendingPrint.Maui
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                })
-                .Host
-                .ConfigureAppConfiguration((app, config) =>
-                {
-                    //https://stackoverflow.com/questions/70280264/maui-what-build-action-for-appsettings-json-and-how-to-access-the-file-on-andro
-                    var assembly = typeof(App).GetTypeInfo().Assembly;
-                    config.AddJsonFile(new EmbeddedFileProvider(assembly), "appsettings.json", optional: false, false);
                 });
+            //.Host
+            //.ConfigureAppConfiguration((app, config) =>
+            //{
+            //    //https://stackoverflow.com/questions/70280264/maui-what-build-action-for-appsettings-json-and-how-to-access-the-file-on-andro
+            //    var assembly = typeof(App).GetTypeInfo().Assembly;
+            //    config.AddJsonFile(new EmbeddedFileProvider(assembly), "appsettings.json", optional: false, false);
+            //});
+
+            // Host removed and can't set config files this way now. https://github.com/dotnet/maui/issues/4393
+            // Add support for appsettings.json https://github.com/dotnet/maui/issues/3446
+            // Plan to add appsettings in the future using a source generator https://github.com/dotnet/maui/issues/4408
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<OnScreenLogs>();
